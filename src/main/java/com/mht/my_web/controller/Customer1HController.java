@@ -1,0 +1,32 @@
+package com.mht.my_web.controller;
+
+import com.mht.my_web.dto.request.customerCreationRequest;
+import com.mht.my_web.entity.Customer1H;
+import com.mht.my_web.service.Customer1HService;
+import com.mht.my_web.dto.request.customerUpdateRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/Customers1H")
+public class Customer1HController {
+    @Autowired
+    private Customer1HService Customer1HService;
+
+    @PostMapping
+    Customer1H createCustomer(@RequestBody customerCreationRequest request) {
+       return Customer1HService.createCustomer(request);
+    }
+
+    @GetMapping
+    List<Customer1H> getCustomers() {
+        return Customer1HService.getCustomers();
+    }
+
+    @PutMapping("/{id}")
+    Customer1H updateCustomer(@RequestBody CustomerUpdateRequest request){
+
+    }
+}
