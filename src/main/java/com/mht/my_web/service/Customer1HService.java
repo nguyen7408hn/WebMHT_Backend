@@ -1,13 +1,13 @@
 package com.mht.my_web.service;
 
 import com.mht.my_web.dto.request.customerCreationRequest;
-import com.mht.my_web.dto.request.customerUpdateRequest;
 import com.mht.my_web.entity.Customer1H;
 import com.mht.my_web.repository.Customer1HRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import com.mht.my_web.exception.ResourceNotFoundException;
 
 @Service
 public class Customer1HService {
@@ -27,10 +27,6 @@ public class Customer1HService {
         return customer1HRepository.save(customer);
     }
 
-    public Customer1H updateCustomer(Long id, customerUpdateRequest request) {
-        
-    }
-
     public List<Customer1H> getCustomers() {
         // Lấy danh sách tất cả khách hàng từ cơ sở dữ liệu
         return customer1HRepository.findAll();
@@ -48,7 +44,15 @@ public class Customer1HService {
             customer.setNoidi(request.getNoidi());
             return customer1HRepository.save(customer);
         } else {
-            throw new RuntimeException("Customer not found with id: " + id);
+            throw new RuntimeException("Customer1H not found with id: " + id);
+        }
+    }
+
+    public void deleteCustomer(Long id) {
+        if (customer1HRepository.existsById(id)) {
+            customer1HRepository.deleteById(id);
+        } else {
+            throw new ResourceNotFoundException("Customer1H not found with id: " + id);
         }
     }
 }

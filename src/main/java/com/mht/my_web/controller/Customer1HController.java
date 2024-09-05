@@ -3,7 +3,6 @@ package com.mht.my_web.controller;
 import com.mht.my_web.dto.request.customerCreationRequest;
 import com.mht.my_web.entity.Customer1H;
 import com.mht.my_web.service.Customer1HService;
-import com.mht.my_web.dto.request.customerUpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +16,7 @@ public class Customer1HController {
 
     @PostMapping
     Customer1H createCustomer(@RequestBody customerCreationRequest request) {
-       return Customer1HService.createCustomer(request);
+        return Customer1HService.createCustomer(request);
     }
 
     @GetMapping
@@ -26,7 +25,12 @@ public class Customer1HController {
     }
 
     @PutMapping("/{id}")
-    Customer1H updateCustomer(@RequestBody CustomerUpdateRequest request){
+    public Customer1H updateCustomer(@PathVariable Long id, @RequestBody customerCreationRequest request) {
+        return Customer1HService.updateCustomer(id, request);
+    }
 
+    @DeleteMapping("/{id}")
+    public void deleteCustomer(@PathVariable Long id) {
+        Customer1HService.deleteCustomer(id);
     }
 }

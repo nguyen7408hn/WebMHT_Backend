@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import com.mht.my_web.exception.ResourceNotFoundException;
 
 @Service
 public class Customer7HService {
@@ -44,6 +45,14 @@ public class Customer7HService {
             return customer7HRepository.save(customer);
         } else {
             throw new RuntimeException("Customer7H not found with id: " + id);
+        }
+    }
+
+    public void deleteCustomer(Long id) {
+        if (customer7HRepository.existsById(id)) {
+            customer7HRepository.deleteById(id);
+        } else {
+            throw new ResourceNotFoundException("Customer7H not found with id: " + id);
         }
     }
 }
