@@ -32,6 +32,11 @@ public class Customer9HService {
         return customer9HRepository.findAll();
     }
 
+    public Customer9H getCustomer(Long id) {
+        return customer9HRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Customer not found with id: " + id));
+    }
+
     public Customer9H updateCustomer(Long id, customerCreationRequest request) {
         Optional<Customer9H> existingCustomer = customer9HRepository.findById(id);
 

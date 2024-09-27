@@ -24,6 +24,11 @@ public class Customer7HController {
         return Customer7HService.getCustomers();
     }
 
+    @GetMapping("/{id}")
+    Customer7H getCustomer(@PathVariable Long id) {
+        return Customer7HService.getCustomer(id);
+    }
+
     @PutMapping("/{id}")
     public Customer7H updateCustomer(@PathVariable Long id, @RequestBody customerCreationRequest request) {
         return Customer7HService.updateCustomer(id, request);
