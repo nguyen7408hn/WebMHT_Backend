@@ -38,4 +38,9 @@ public class ThuTuNoiDonController {
     public void deleteThuTuNoiDon(@PathVariable Long id) {
         ThuTuNoiDonService.deleteThuTuNoiDon(id);
     }
+
+    @GetMapping("/suggestions")
+    public List<ThuTuNoiDon> getSuggestions(@RequestParam String query) {
+        return ThuTuNoiDonService.getSuggestions(query);
+    }
 }

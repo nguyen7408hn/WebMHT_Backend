@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import com.mht.my_web.exception.ResourceNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.stream.Collectors;
 
 @Service
 public class ThuTuNoiDonService {
@@ -67,5 +68,9 @@ public class ThuTuNoiDonService {
         } else {
             throw new ResourceNotFoundException("ThuTuNoiDon not found with id: " + id);
         }
+    }
+
+    public List<ThuTuNoiDon> getSuggestions(String partialName) {
+        return ThuTuNoiDonRepository.findByNoidonContainingIgnoreCase(partialName);
     }
 }
