@@ -5,6 +5,7 @@ import com.mht.my_web.entity.Customer1H;
 import com.mht.my_web.service.Customer1HService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -37,5 +38,11 @@ public class Customer1HController {
     @DeleteMapping("/{id}")
     public void deleteCustomer(@PathVariable Long id) {
         Customer1HService.deleteCustomer(id);
+    }
+
+    @DeleteMapping("/customers")
+    public ResponseEntity<Void> deleteAllCustomers() {
+        Customer1HService.deleteAllCustomers();
+        return ResponseEntity.noContent().build();
     }
 }

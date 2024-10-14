@@ -22,7 +22,7 @@ public class Customer9HService {
         customer.setSove(request.getSove());
         customer.setNoidon(request.getNoidon());
         customer.setNoidi(request.getNoidi());
-
+        customer.setGhichu(request.getGhichu());
         // Lưu customer vào cơ sở dữ liệu
         return customer9HRepository.save(customer);
     }
@@ -59,5 +59,9 @@ public class Customer9HService {
         } else {
             throw new ResourceNotFoundException("Customer9H not found with id: " + id);
         }
+    }
+
+    public void deleteAllCustomers() {
+        customer9HRepository.deleteAll();
     }
 }

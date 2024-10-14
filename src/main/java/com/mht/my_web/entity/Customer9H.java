@@ -14,6 +14,7 @@ public class Customer9H {
     private int sove;
     private String noidon;
     private String noidi;
+    private String ghichu;
 
     public Long getId() {
         return id;
@@ -54,6 +55,10 @@ public class Customer9H {
     public void setNoidi(String noidi) {
         this.noidi = noidi;
     }
+
+    public String getGhichu() {return ghichu;}
+
+    public void setGhichu(String ghichu) {this.ghichu = ghichu;}
 }
 
 
