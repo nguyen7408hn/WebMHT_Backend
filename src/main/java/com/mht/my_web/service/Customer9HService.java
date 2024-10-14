@@ -47,6 +47,7 @@ public class Customer9HService {
             customer.setSove(request.getSove());
             customer.setNoidon(request.getNoidon());
             customer.setNoidi(request.getNoidi());
+            customer.setGhichu(request.getGhichu());
             return customer9HRepository.save(customer);
         } else {
             throw new RuntimeException("Customer9H not found with id: " + id);
