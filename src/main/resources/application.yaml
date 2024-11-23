@@ -4,6 +4,12 @@ spring:
     username: b15024aa3acf96
     password: 38503ab8
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10  # Số lượng kết nối tối đa trong pool
+      minimum-idle: 5        # Số kết nối tối thiểu trong pool
+      idle-timeout: 30000    # Thời gian tối đa mà kết nối có thể ở trạng thái idle
+      max-lifetime: 600000   # Thời gian sống tối đa của kết nối trong pool
+      connection-timeout: 30000 # Thời gian chờ tối đa để lấy kết nối từ pool
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
