@@ -1,19 +1,14 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /identity
+
 spring:
   datasource:
-    url: jdbc:mysql://us-cluster-east-01.k8s.cleardb.net/heroku_579adff8c5844de?reconnect=true
-    username: b15024aa3acf96
-    password: 38503ab8
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    hikari:
-      maximum-pool-size: 10  # Số lượng kết nối tối đa trong pool
-      minimum-idle: 5        # Số kết nối tối thiểu trong pool
-      idle-timeout: 30000    # Thời gian tối đa mà kết nối có thể ở trạng thái idle
-      max-lifetime: 600000   # Thời gian sống tối đa của kết nối trong pool
-      connection-timeout: 30000 # Thời gian chờ tối đa để lấy kết nối từ pool
+    url: "jdbc:mysql://localhost:3306/my_web"
+    username: root
+    password: 123456
 
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
-    properties:
-      hibernate.format_sql: true
