@@ -15,6 +15,7 @@ spring:
       connection-timeout: 30000    # Thời gian tối đa để chờ kết nối mới
       validation-timeout: 5000     # Thời gian tối đa để kiểm tra kết nối
       leak-detection-threshold: 15000 # Thời gian phát hiện rò rỉ kết nối (ở đây là 15 giây)
+      connection-test-query: SELECT 1    # Kiểm tra kết nối hợp lệ
 
   jpa:
     hibernate:
