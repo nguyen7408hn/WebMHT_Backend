@@ -5,9 +5,9 @@ server:
 
 spring:
   datasource:
-    url: "jdbc:mysql://uc13jynhmkss3nve.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ir2cwolruuxt7fpe"
-    username: r1ry27uhddk7fzmp
-    password: j3x0mrxtdhscvv9s
+    url: "jdbc:mysql://nhaxemaihuythanh-lnguyn474.j.aivencloud.com:22645/defaultdb?ssl-mode=REQUIRED&useSSL=true"
+    username: avnadmin
+    password: AVNS_7BdGEfKnjQ3vgcMClXI
     hikari:
       maximum-pool-size: 9        # Giới hạn số kết nối tối đa
       idle-timeout: 600000         # Thời gian tối đa (ms) giữ kết nối không hoạt động (ở đây là 10 phút)
