@@ -5,9 +5,9 @@ server:
 
 spring:
   datasource:
-    url: mysql://d3q0ugozlh9km0v9:x92aw2fpji44hi8k@gtizpe105piw2gfq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/wovqidm7h5kqv42u
-    username: d3q0ugozlh9km0v9
-    password: x92aw2fpji44hi8k
+    url: mysql://vwtdq988jt3dy6iy:tmgrin7e18nc8the@otwsl2e23jrxcqvx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/d92ebi01a14uydco
+    username: vwtdq988jt3dy6iy
+    password: tmgrin7e18nc8the
     hikari:
       maximum-pool-size: 9        # Giới hạn số kết nối tối đa
       idle-timeout: 600000         # Thời gian tối đa (ms) giữ kết nối không hoạt động (ở đây là 10 phút)
