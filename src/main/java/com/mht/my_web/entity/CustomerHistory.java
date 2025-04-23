@@ -2,8 +2,8 @@ package com.mht.my_web.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 @Entity
 @Getter @Setter
@@ -24,10 +24,10 @@ public class CustomerHistory {
 
     private String tai; // ✅ Cột mới để lưu Tài (ví dụ: "Tài 1h")
 
-    private LocalDateTime createdAt;
+    private OffsetDateTime createdAt;
 
     @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
+        createdAt = OffsetDateTime.now(ZoneOffset.UTC);
     }
 }

@@ -1,13 +1,14 @@
 package com.mht.my_web.controller;
 
-import org.springframework.format.annotation.DateTimeFormat; // ✅ cần cho @DateTimeFormat
-import java.time.LocalDate;          // ✅ cần cho LocalDate
-import java.time.LocalDateTime;      // ✅ cần cho LocalDateTime
 import com.mht.my_web.entity.CustomerHistory;
 import com.mht.my_web.repository.CustomerHistoryRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 
 @RestController
@@ -31,8 +32,8 @@ public class CustomerHistoryController {
     public List<CustomerHistory> getByDate(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date
     ) {
-        LocalDateTime start = date.atStartOfDay();
-        LocalDateTime end = date.plusDays(1).atStartOfDay();
+        OffsetDateTime start = date.atStartOfDay().atOffset(ZoneOffset.ofHours(+7));
+        OffsetDateTime end = date.plusDays(1).atStartOfDay().atOffset(ZoneOffset.ofHours(+7));
         return repository.findAllByCreatedAtBetweenOrderByCreatedAtDesc(start, end);
     }
 }
