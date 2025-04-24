@@ -36,4 +36,9 @@ public class CustomerHistoryController {
         OffsetDateTime end = date.plusDays(1).atStartOfDay().atOffset(ZoneOffset.ofHours(+7));
         return repository.findAllByCreatedAtBetweenOrderByCreatedAtDesc(start, end);
     }
+
+    @GetMapping("/allnoidi")
+    public List<String> getAllNoiDi() {
+        return repository.findAllDistinctNoidi();
+    }
 }

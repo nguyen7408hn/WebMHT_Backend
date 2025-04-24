@@ -29,7 +29,10 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        #dialect: org.hibernate.dialect.MySQL8Dialect
+
+        #Dành cho chạy local
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+
         jdbc:
           lob:
             non_contextual_creation: true
