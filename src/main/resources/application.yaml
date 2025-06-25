@@ -5,15 +5,14 @@ server:
 
 spring:
   datasource:
-    url: mysql://ntqdah1h2dlb5ycj:k2cv83xur4jtbn3h@a07yd3a6okcidwap.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/crimcvkgbiw65pj6
-    username: ntqdah1h2dlb5ycj
-    password: k2cv83xur4jtbn3h
+    # url: mysql://ntqdah1h2dlb5ycj:k2cv83xur4jtbn3h@a07yd3a6okcidwap.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/crimcvkgbiw65pj6
+    # username: ntqdah1h2dlb5ycj
+    # password: k2cv83xur4jtbn3h
 
-    #Chạy local
-#    url: jdbc:mysql://localhost:3306/customer
-#    username: root
-#    password: 123456
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/customer
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
     hikari:
       maximum-pool-size: 9        # Giới hạn số kết nối tối đa

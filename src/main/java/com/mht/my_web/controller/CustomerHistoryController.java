@@ -2,7 +2,6 @@ package com.mht.my_web.controller;
 
 import com.mht.my_web.entity.CustomerHistory;
 import com.mht.my_web.repository.CustomerHistoryRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,10 +12,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/CustomerHistory")
-@RequiredArgsConstructor
 public class CustomerHistoryController {
 
     private final CustomerHistoryRepository repository;
+
+    // ← Thêm constructor này để Spring inject đúng bean
+    public CustomerHistoryController(CustomerHistoryRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping
     public CustomerHistory save(@RequestBody CustomerHistory history) {

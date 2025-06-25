@@ -26,6 +26,7 @@
 		<tag/>
 		<url/>
 	</scm>
+	<packaging>war</packaging>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -48,8 +49,11 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>1.18.26</version>         <!-- thêm version mới nhất -->
+			<scope>provided</scope>           <!-- đánh dấu provided để không đóng gói vào JAR -->
 		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
