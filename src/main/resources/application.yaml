@@ -6,9 +6,8 @@ server:
 spring:
   datasource:
     # DÙNG PRIVATE vars, KHÔNG DÙNG MYSQL_PUBLIC_URL
-    url: jdbc:mysql://${MYSQLHOST}:${MYSQLPORT}/${MYSQLDATABASE}?useSSL=false&serverTimezone=UTC
-    username: ${MYSQLUSER}
-    password: ${MYSQLPASSWORD}
+    # Nếu dùng MYSQL_URL, chỉ cần dòng này:
+    url: ${SPRING_DATASOURCE_URL}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
     # url: jdbc:mysql://localhost:3306/customer
