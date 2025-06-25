@@ -5,34 +5,26 @@ server:
 
 spring:
   datasource:
-    # DÙNG PRIVATE vars, KHÔNG DÙNG MYSQL_PUBLIC_URL
-    # Nếu dùng MYSQL_URL, chỉ cần dòng này:
     url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
-
-    # url: jdbc:mysql://localhost:3306/customer
-    # username: root
-    # password: 123456
-    # driver-class-name: com.mysql.cj.jdbc.Driver
-
-    hikari:
-      maximum-pool-size: 9        # Giới hạn số kết nối tối đa
-      idle-timeout: 600000         # Thời gian tối đa (ms) giữ kết nối không hoạt động (ở đây là 10 phút)
-      max-lifetime: 1800000        # Thời gian tối đa sống của một kết nối (ở đây là 30 phút)
-      connection-timeout: 30000    # Thời gian tối đa để chờ kết nối mới
-      validation-timeout: 5000     # Thời gian tối đa để kiểm tra kết nối
-      leak-detection-threshold: 15000 # Thời gian phát hiện rò rỉ kết nối (ở đây là 15 giây)
-      connection-test-query: SELECT 1    # Kiểm tra kết nối hợp lệ
 
   jpa:
     hibernate:
       ddl-auto: update
+
     properties:
       hibernate:
-
-        #Dành cho chạy local
-#        dialect: org.hibernate.dialect.MySQL8Dialect
-
         jdbc:
           lob:
             non_contextual_creation: true
+
+  hikari:
+    maximum-pool-size: 9
+    idle-timeout:    600000
+    max-lifetime:    1800000
+    connection-timeout: 30000
+    validation-timeout: 5000
+    leak-detection-threshold: 15000
+    connection-test-query: SELECT 1
