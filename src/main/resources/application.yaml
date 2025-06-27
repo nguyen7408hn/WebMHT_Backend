@@ -5,11 +5,11 @@ server:
 
 spring:
   datasource:
-    # Sử dụng biến môi trường do Railway MySQL service cung cấp
-    url: ${MYSQL_URL}
+    url: jdbc:${MYSQL_URL}         # <-- prefix jdbc: để driver nhận
     username: ${MYSQLUSER}
     password: ${MYSQLPASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
+
 
     hikari:
       maximum-pool-size: 9          # số kết nối tối đa
