@@ -5,26 +5,35 @@ server:
 
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    # Sử dụng biến môi trường do Railway MySQL service cung cấp
+    url: ${MYSQL_URL}
+    username: ${MYSQLUSER}
+    password: ${MYSQLPASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+    hikari:
+      maximum-pool-size: 9          # số kết nối tối đa
+      idle-timeout: 600000          # 10 phút
+      max-lifetime: 1800000         # 30 phút
+      connection-timeout: 30000     # 30 giây
+      validation-timeout: 5000      # 5 giây
+      leak-detection-threshold: 15000 # 15 giây
+      connection-test-query: SELECT 1
 
   jpa:
     hibernate:
-      ddl-auto: update
-
+      ddl-auto: update              # tự động tạo/update schema
     properties:
       hibernate:
-        jdbc:
-          lob:
-            non_contextual_creation: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
 
-  hikari:
-    maximum-pool-size: 9
-    idle-timeout:    600000
-    max-lifetime:    1800000
-    connection-timeout: 30000
-    validation-timeout: 5000
-    leak-detection-threshold: 15000
-    connection-test-query: SELECT 1
+  jdbc:
+    lob:
+      non_contextual_creation: true
+
+
+  
+    # url: jdbc:mysql://localhost:3306/customer
+    # username: root
+    # password: 123456
+    # driver-class-name: com.mysql.cj.jdbc.Driver
