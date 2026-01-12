@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://lmkn.netlify.app")
 @RequestMapping("/Customers9H")
 public class Customer9HController {
     @Autowired
