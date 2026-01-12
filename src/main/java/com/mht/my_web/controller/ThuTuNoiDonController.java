@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ThuTuNoiDon")
+@CrossOrigin(origins = "https://lmkn.netlify.app")
 public class ThuTuNoiDonController {
     @Autowired
     private ThuTuNoiDonService ThuTuNoiDonService;
