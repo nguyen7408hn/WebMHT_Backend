@@ -11,6 +11,7 @@ import java.time.ZoneOffset;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "https://lmkn.netlify.app")
 @RequestMapping("/CustomerHistory")
 public class CustomerHistoryController {
 
